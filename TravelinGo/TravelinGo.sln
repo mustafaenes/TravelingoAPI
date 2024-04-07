@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33920.266
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelinGo", "TravelinGo.csproj", "{9ED43F81-C109-4AFB-983A-31449D1AE274}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelinGo.Business", "..\TravelinGo.Business\TravelinGo.Business.csproj", "{A9FC98EA-39C6-40AB-81F9-C2A4A079473B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ED43F81-C109-4AFB-983A-31449D1AE274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ED43F81-C109-4AFB-983A-31449D1AE274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ED43F81-C109-4AFB-983A-31449D1AE274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ED43F81-C109-4AFB-983A-31449D1AE274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9FC98EA-39C6-40AB-81F9-C2A4A079473B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9FC98EA-39C6-40AB-81F9-C2A4A079473B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9FC98EA-39C6-40AB-81F9-C2A4A079473B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9FC98EA-39C6-40AB-81F9-C2A4A079473B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED789246-ADEF-483B-9602-80A858825569}
+	EndGlobalSection
+EndGlobal
