@@ -61,7 +61,7 @@ namespace TravelinGo.Controllers
                 new Claim("RegistrationDate", user.RegistrationDate.ToString()), // Kullanıcı kayıt tarihi
                 // Diğer kullanıcı özelliklerini de ekleyebilirsiniz
             }),
-                Expires = DateTime.UtcNow.AddHours(2), // Token'ın geçerlilik süresi, burada iki saat olarak ayarlanmıştır
+                Expires = DateTime.UtcNow.AddHours(1), // Token'ın geçerlilik süresi, burada iki saat olarak ayarlanmıştır
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

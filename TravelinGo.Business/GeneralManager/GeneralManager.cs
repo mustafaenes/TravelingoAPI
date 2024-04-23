@@ -156,7 +156,6 @@ namespace TravelinGo.Business
                 parameters.Add("@LocationId", comment.LocationId);
                 parameters.Add("@AuthorName", comment.AuthorName);
                 parameters.Add("@CommentText", comment.CommentText);
-                parameters.Add("@CommentDate", comment.CommentDate);
 
                 connection.Execute("AddOrUpdateComment", parameters, commandType: CommandType.StoredProcedure);
 

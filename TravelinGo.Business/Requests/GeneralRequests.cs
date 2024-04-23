@@ -25,11 +25,9 @@ namespace TravelinGo.Business.Requests
 
     public class Comments
     {
-        public int Id { get; set; }
         public int LocationId { get; set; }
         public string AuthorName { get; set; }
         public string CommentText { get; set; }
-        public DateTime CommentDate { get; set; }
     }
 
 }
