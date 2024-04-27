@@ -1,11 +1,15 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using TravelinGo.Business.Models;
 using TravelinGo.Business.Requests;
@@ -15,10 +19,12 @@ namespace TravelinGo.Business
     public class GeneralManager : IGeneralManager
     {
         private readonly IConfiguration _configuration;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public GeneralManager(IConfiguration configuration)
+        public GeneralManager(IConfiguration configuration, IHttpClientFactory httpClientFactory)
         {
-            _configuration = configuration; 
+            _configuration = configuration;
+            _httpClientFactory = httpClientFactory;
         }
 
 
@@ -172,6 +178,37 @@ namespace TravelinGo.Business
                     ErrorCode = "1000",
                     ErrorDescription = ex.Message
                 };
+            }
+        }
+        public async Task<string> GetChatGPTResponse(GptRequest request)
+        {
+            try
+            {
+                var apiKey = _configuration["OpenAI:ApiKey"];
+                var httpClient = _httpClientFactory.CreateClient();
+
+                // API anahtarını Authorization başlığı olarak ekleyin
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+
+                var response = await httpClient.PostAsync("https://api.openai.com/v1/chat/completions", new StringContent(JsonConvert.SerializeObject(new
+                {
+                    model = "gpt-3.5-turbo",
+                    messages = new[] { new { role = "user", content = request.message } }
+                }), Encoding.UTF8, "application/json"));
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseData = await response.Content.ReadAsStringAsync();
+                    return responseData;
+                }
+                else
+                {
+                    throw new Exception("ChatGPT API error");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("ChatGPT API error: " + ex.Message);
             }
         }
 

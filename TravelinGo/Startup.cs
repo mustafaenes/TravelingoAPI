@@ -39,6 +39,8 @@ namespace TravelinGo
             services.AddSession();
             services.AddDistributedMemoryCache();
 
+            services.AddHttpClient();
+
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

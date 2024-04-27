@@ -61,5 +61,19 @@ namespace TravelinGo.Controllers
             return result;
         }
 
+        [HttpPost("GetChatGPTResponse")]
+        public async Task<IActionResult> GetChatGPTResponse(GptRequest request)
+        {
+            try
+            {
+                var response = await _GeneralManager.GetChatGPTResponse(request);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error: " + ex.Message);
+            }
+        }
+
     }
 }

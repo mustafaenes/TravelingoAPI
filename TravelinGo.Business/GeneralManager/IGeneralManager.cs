@@ -15,5 +15,7 @@ namespace TravelinGo.Business
         string GetRestaurantDetails(int LocationId);
         string GetCommentsByLocationId(int locationId);
         TravelingoResponse AddOrUpdateComment(Comments comment);
+        Task<string> GetChatGPTResponse(GptRequest request);
+
     }
 }

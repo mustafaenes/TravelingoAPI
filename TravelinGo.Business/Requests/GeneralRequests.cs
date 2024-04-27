@@ -30,4 +30,8 @@ namespace TravelinGo.Business.Requests
         public string CommentText { get; set; }
     }
 
+    public class GptRequest
+    {
+        public string message { get; set; }
+    }
 }
