@@ -212,5 +212,35 @@ namespace TravelinGo.Business
             }
         }
 
+        public string GetAllRestraurantsInformations(string City)
+        {
+            string connectionString = _configuration.GetConnectionString("MyDatabaseConnection");
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@CITY", City);
+
+            var result = connection.QueryFirstOrDefault<string>("GetAllRestaurantsInformations", parameters, commandType: CommandType.StoredProcedure);
+
+            return result;
+        }
+
+        public string GetAllRestraurantsFeatures(string City)
+        {
+            string connectionString = _configuration.GetConnectionString("MyDatabaseConnection");
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@CITY", City);
+
+            var result = connection.QueryFirstOrDefault<string>("GetRestaurantsFeatures", parameters, commandType: CommandType.StoredProcedure);
+
+            return result;
+        }
+
     }
 }

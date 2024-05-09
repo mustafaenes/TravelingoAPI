@@ -75,5 +75,19 @@ namespace TravelinGo.Controllers
             }
         }
 
+        [HttpGet("GetAllRestraurantsInformations/{City}")]
+        public string GetAllRestraurantsInformations(string City)
+        {
+            var result = _GeneralManager.GetAllRestraurantsInformations(City);
+            return result;
+        }
+
+        [HttpGet("GetAllRestraurantsFeatures/{City}")]
+        public string GetAllRestraurantsFeatures(string City)
+        {
+            var result = _GeneralManager.GetAllRestraurantsFeatures(City);
+            return result;
+        }
+
     }
 }
