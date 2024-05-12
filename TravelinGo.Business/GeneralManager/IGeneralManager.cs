@@ -18,5 +18,9 @@ namespace TravelinGo.Business
         Task<string> GetChatGPTResponse(GptRequest request);
         string GetAllRestraurantsInformations(string City);
         string GetAllRestraurantsFeatures(string City);
+        string GetAllHotelsInformations(string City);
+        string GetAllDestinationsInformations(string City);
+        string GetHotelDetails(int LocationId);
+        string GetDestinationDetails(int LocationId);
     }
 }

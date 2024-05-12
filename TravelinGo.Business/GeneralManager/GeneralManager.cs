@@ -242,5 +242,65 @@ namespace TravelinGo.Business
             return result;
         }
 
+        public string GetAllHotelsInformations(string City)
+        {
+            string connectionString = _configuration.GetConnectionString("MyDatabaseConnection");
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@CITY", City);
+
+            var result = connection.QueryFirstOrDefault<string>("GetAllHotelsInformations", parameters, commandType: CommandType.StoredProcedure);
+
+            return result;
+        }
+
+        public string GetAllDestinationsInformations(string City)
+        {
+            string connectionString = _configuration.GetConnectionString("MyDatabaseConnection");
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@CITY", City);
+
+            var result = connection.QueryFirstOrDefault<string>("GetAllDestinationsInformations", parameters, commandType: CommandType.StoredProcedure);
+
+            return result;
+        }
+
+        public string GetHotelDetails(int LocationId)
+        {
+            string connectionString = _configuration.GetConnectionString("MyDatabaseConnection");
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@LOCATION_ID", LocationId);
+
+            var result = connection.QueryFirstOrDefault<string>("GetHotelDetails", parameters, commandType: CommandType.StoredProcedure);
+
+            return result;
+        }
+
+        public string GetDestinationDetails(int LocationId)
+        {
+            string connectionString = _configuration.GetConnectionString("MyDatabaseConnection");
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@LOCATION_ID", LocationId);
+
+            var result = connection.QueryFirstOrDefault<string>("GetDestinationDetails", parameters, commandType: CommandType.StoredProcedure);
+
+            return result;
+        }
+
     }
 }

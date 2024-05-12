@@ -89,5 +89,33 @@ namespace TravelinGo.Controllers
             return result;
         }
 
+        [HttpGet("GetAllHotelsInformations/{City}")]
+        public string GetAllHotelsInformations(string City)
+        {
+            var result = _GeneralManager.GetAllHotelsInformations(City);
+            return result;
+        }
+
+        [HttpGet("GetAllDestinationsInformations/{City}")]
+        public string GetAllDestinationsInformations(string City)
+        {
+            var result = _GeneralManager.GetAllDestinationsInformations(City);
+            return result;
+        }
+
+        [HttpGet("GetHotelDetails/{LocationId}")]
+        public string GetHotelDetails(int LocationId)
+        {
+            var result = _GeneralManager.GetHotelDetails(LocationId);
+            return result;
+        }
+
+        [HttpGet("GetDestinationDetails/{LocationId}")]
+        public string GetDestinationDetails(int LocationId)
+        {
+            var result = _GeneralManager.GetDestinationDetails(LocationId);
+            return result;
+        }
+
     }
 }
