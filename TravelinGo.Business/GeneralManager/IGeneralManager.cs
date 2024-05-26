@@ -22,5 +22,6 @@ namespace TravelinGo.Business
         string GetAllDestinationsInformations(string City);
         string GetHotelDetails(int LocationId);
         string GetDestinationDetails(int LocationId);
+        string GetDetailImages(int LocationId);
     }
 }

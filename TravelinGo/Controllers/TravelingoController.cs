@@ -117,5 +117,12 @@ namespace TravelinGo.Controllers
             return result;
         }
 
+        [HttpGet("GetDetailImages/{LocationId}")]
+        public string GetDetailImages(int LocationId)
+        {
+            var result = _GeneralManager.GetDetailImages(LocationId);
+            return result;
+        }
+
     }
 }

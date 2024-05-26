@@ -302,5 +302,20 @@ namespace TravelinGo.Business
             return result;
         }
 
+        public string GetDetailImages(int LocationId)
+        {
+            string connectionString = _configuration.GetConnectionString("MyDatabaseConnection");
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@LOCATION_ID", LocationId);
+
+            var result = connection.QueryFirstOrDefault<string>("GetDetailImages", parameters, commandType: CommandType.StoredProcedure);
+
+            return result;
+        }
+
     }
 }
